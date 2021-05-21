@@ -1,0 +1,43 @@
+.CustomerEntry {
+    flex: 100%;
+}
+
+.CustomerEntry-customerData {
+    display: flex;
+    border-bottom: 1px solid #DDD;
+    padding-top: 12px;
+    padding-bottom: 0px;
+}
+
+.CustomerEntry-customerItem {
+    display: flex;
+    flex-direction: column;
+    flex: 0.8;
+    background-color: white;
+    margin-right: 20px;
+}
+
+.CustomerEntry-customerItem-detail {
+    margin-top: 0;
+    margin-bottom: 8px;
+    border-bottom: inset;
+}
+
+.CustomerEntry-button {
+    background-color: #f0c14b;
+    font-size: 16px;
+    flex: 0.2;
+    border-radius: 4px;
+    border: 2px, solid, #a88734;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+.CustomerEntry-button-container {
+    display:flex;
+    align-items: flex-end;
+}
+
+.CustomerList-item {
+    display: flex;
+}
