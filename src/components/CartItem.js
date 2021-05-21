@@ -1,6 +1,6 @@
 import React from 'react'
-
 import './CartItem.css';
+import NumberFormat from 'react-number-format';
 
 function CartItem({ item }) {
     return (
@@ -31,7 +31,7 @@ function CartItem({ item }) {
                 </div>
             </div>
             <div className="CartItem-price">
-                {item.price}
+                <NumberFormat value={item.price} prefix={"$"} thousandSeparator={","} displayType={"text"} decimalScale={2} fixedDecimalScale={'true'} />
             </div>
             
         </div>
