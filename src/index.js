@@ -3,11 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import App1 from './App1';
+import FMOH from '../src/components/FMOverheadMain';
+import Roadmap from '../src/components/RoadmapMain';
+import RoadmapEntry from '../src/components/RoadmapEntry';
+import RoadmapMain from '../src/components/RoadmapMain';
+import RoadmapStartMain from '../src/components/RoadmapStartMain';
+import RoadmapStart from '../src/components/RoadmapStart';
+
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App1 />
+    <RoadmapStartMain />
   </React.StrictMode>,
   document.getElementById('root')
 );
