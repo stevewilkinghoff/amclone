@@ -21,9 +21,14 @@ function App1() {
     <div className="App">
       <Header title="Found Money Customer Profitability Mapper"/>
       
-      <div className="App-main">
-        
+      <div className="App-main-cpm">
+        <div>
+        <CustomerEntry/>
+        </div>
+        <hr/>
+        <div>
         <CustomerList className="CustomerList" customers={ customers } />
+        </div>
       </div>
     </div>
   );

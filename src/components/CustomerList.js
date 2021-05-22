@@ -7,7 +7,7 @@ function CustomerList({ customers }) {
   
     return (
         <div className="CartItems">
-          <h1>Shopping Cart</h1>
+          <h1>Customer List</h1>
           <hr />
           <div className="CartItems-items">
             {customers.map((customer, index) =>

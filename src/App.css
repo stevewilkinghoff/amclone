@@ -11,6 +11,10 @@ body {
   padding: 14px 18px 0 18px;
 }
 
+.App-main-cpm {
+  padding: 14px 18px 0 18px;
+}
+
 .CustomerList {
   display: flex;
 }

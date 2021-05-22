@@ -11,27 +11,28 @@ let customerObject = {
 
 function CustomerEntry() {
     return (
-        <div className="CustomerEntry">
+        <div className="CartItems">
+            <h1>Add Customer CPM Record</h1>
             <div className="CustomerEntry-customerData" >
                 <div className="CustomerEntry-customerItem">
                     <div className="CustomerEntry-customerItem-detail">
                     <h4 >Customer Name</h4>
                     </div>
-                    <div>
-                    {customerObject.name}
+                    <div >
+                    <input className="Customer-name-entry" type="text" placeholder="Customer"/>
                     </div>
                 </div>
                     <div className="CustomerEntry-customerItem">
                     <div className="CustomerEntry-customerItem-detail">
                     <h4 >Customer Revenue</h4>
                     </div>
-                    Revenue: {customerObject.revenue}
-                </div>
+                    <input className="Customer-name-entry" type="text" placeholder="Revenue"/>
+                    </div>
                     <div className="CustomerEntry-customerItem">
                     <div className="CustomerEntry-customerItem-detail">
                     <h4 >Customer Resonance Score</h4>
                     </div>
-                    Resonance: {customerObject.resonance}
+                    <input className="Customer-name-entry" type="text" placeholder="Resonance Score"/>
                 </div>
                 <div className="CustomerEntry-button-container">
                 <button className="CustomerEntry-button">

@@ -2,6 +2,11 @@
     flex: 100%;
 }
 
+.CartItems {
+    flex: 0.8;
+    background-color: white;
+}
+
 .CustomerEntry-customerData {
     display: flex;
     border-bottom: 1px solid #DDD;
@@ -40,4 +45,8 @@
 
 .CustomerList-item {
     display: flex;
+}
+
+.Customer-name-entry {
+    width: 100%;
 }
