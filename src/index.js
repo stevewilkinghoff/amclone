@@ -9,12 +9,14 @@ import RoadmapEntry from '../src/components/RoadmapEntry';
 import RoadmapMain from '../src/components/RoadmapMain';
 import RoadmapStartMain from '../src/components/RoadmapStartMain';
 import RoadmapStart from '../src/components/RoadmapStart';
+import AppRouter from './AppRouter';
+
 
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <RoadmapStartMain />
+    <AppRouter />
   </React.StrictMode>,
   document.getElementById('root')
 );

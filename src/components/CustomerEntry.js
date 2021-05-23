@@ -12,7 +12,7 @@ let customerObject = {
 function CustomerEntry() {
     return (
         <div className="CartItems">
-            <h1>Add Customer CPM Record</h1>
+            <h3>Add Customer CPM Record</h3>
             <div className="CustomerEntry-customerData" >
                 <div className="CustomerEntry-customerItem">
                     <div className="CustomerEntry-customerItem-detail">

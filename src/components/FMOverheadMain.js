@@ -18,7 +18,7 @@ function FMOH() {
   return (
     
     <div className="App">
-      <Header title="Found Money Overhead"/>
+      
       
       <div className="App-main-cpm">
         <div>

@@ -7,9 +7,10 @@ import Header from './Header';
 function RoadmapEntry() {
     return (
         <div className="App">
-            <Header title="Found Money Roadmap Data Entry"/>
+            <div className="App-main">
+            <h3 style={{alignContent:"left"}}>Found Money Roadmap Data Entry</h3> 
+            </div>
         <div className="CartItems">
-            <h1>Add Roadmap Data Points</h1>
             <div className="CustomerEntry-customerData" >
                 <div className="CustomerEntry-customerItem">
                     <div className="CustomerEntry-customerItem-detail">

@@ -19,7 +19,9 @@ function RoadmapStartMain() {
     return (
     
     <div className="App">
-      <Header title="Found Money Roadmap"/>
+        <div className="App-main">
+        <h3>Found Money Roadmap</h3>
+        </div>
       
       <div className="App-main-cpm">
         <div>

@@ -23,6 +23,7 @@ function RoadmapStart2({ roadmapData, fmOverhead }) {
     console.log(trxSizeSeek);
     console.log("new revenue", (noCustomersSeek * purchFreqSeek * trxSizeSeek));
     console.log(purchFreqSeek);
+    console.log(revenue * gmSeek);
 
     const getFMOH = () => {
         let total = 0;
@@ -74,14 +75,6 @@ function RoadmapStart2({ roadmapData, fmOverhead }) {
         <>
         <div className="CartItem">
             <div className="CustomerList-item">
-            <div className="roadmap-item">
-                    <div>
-                    <h5><span style={{color:"black"}}>Period End:</span></h5>
-                    </div>
-                    <div>
-                    {getGM()}
-                    </div>
-                </div>
                 <div className="roadmap-item">
                     <div>
                     <h5><span style={{color:"black"}}>Period End:</span></h5>
@@ -100,10 +93,10 @@ function RoadmapStart2({ roadmapData, fmOverhead }) {
                 </div>
                 <div className="roadmap-item">
                     <div>
-                    <h5>Found Money BE: </h5>
+                    <h5>Found Money Margin: </h5>
                     </div>
                     <div>
-                    <NumberFormat value={ getFMBE(getFMOH(0), getGPPercent((roadmapData[0].GM), (roadmapData[0].Revenue))) }  displayType={"text"} prefix={"$"} thousandSeparator={","} decimalScale={0} />
+                    <NumberFormat value={ revenue * gmSeek}  displayType={"text"} prefix={"$"} thousandSeparator={","} decimalScale={0} />
                     </div>
                 </div>
                 <div className="roadmap-item">
@@ -136,14 +129,6 @@ function RoadmapStart2({ roadmapData, fmOverhead }) {
                     </div>
                     <div>
                     <NumberFormat value={ getGPPercent((roadmapData[0].GM), (roadmapData[0].Revenue)) }  displayType={"text"}  suffix={"%"}thousandSeparator={","} decimalScale={2} fixedDecimalScale={"true"}  />
-                    </div>
-                </div>
-                <div className="roadmap-item">
-                    <div>
-                    <h5>FMBE Compare</h5>
-                    </div>
-                    <div>
-                    <NumberFormat value={ getFMBECompare(roadmapData[0].Revenue, getFMBE(getFMOH(0), getGPPercent((roadmapData[0].GM), (roadmapData[0].Revenue)))) }  displayType={"text"}  prefix={"$"}thousandSeparator={","} decimalScale={0}   />
                     </div>
                 </div>
             </div>
