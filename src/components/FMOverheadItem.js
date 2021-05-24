@@ -14,7 +14,7 @@ function FMOverheadItem({ overhead }) {
                     {overhead.description}
                     </div>
                 </div>
-                <div className="revenue">
+                <div className="revenue" style={{marginLeft: "55px"}}>
                     <div>
                     <h5>Amount: </h5>
                     </div>
@@ -26,7 +26,7 @@ function FMOverheadItem({ overhead }) {
                     <div>
                     <h5>Reason this is important: </h5>
                     </div>
-                    <div>
+                    <div className="overHeadReason">
                     {overhead.reason}  
                     </div>
                 </div>

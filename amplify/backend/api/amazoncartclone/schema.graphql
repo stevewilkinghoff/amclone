@@ -1,0 +1,23 @@
+type Todo @model {
+  id: ID!
+  name: String!
+  description: String
+}
+
+type FMOHItem @model {
+  id: ID!
+  description: String!
+  amount: String!
+  reason: String!
+}
+
+type fmRoadmapData @model {
+  id: ID!
+  periodEnd: String!
+  revenue: String!
+  cogs: String!
+  grossProfit: String
+  overhead: String!
+  noCustomers: String!
+  noTransactions: String!
+}

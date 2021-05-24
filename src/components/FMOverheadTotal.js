@@ -7,7 +7,7 @@ function FMOverheadTotal( { items }) {
     const getTotalOH = () => {
         let total = 0;
         items.forEach((item)=> {
-            total += (item.amount)
+            total += parseInt(item.amount)
         })
             return total;
     }

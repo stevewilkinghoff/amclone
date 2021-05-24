@@ -5,7 +5,6 @@ import '../App.css';
 import Header from './Header';
 import RoadmapData from '../DataRoadmap';
 import foundMoneyOH from '../DataFoundMoneyOH';
-import RoadmapStart from './RoadmapStart';
 import RoadmapStart2 from './RoadmapStart2';
 
 import RoadmapList from './RoadmapList';

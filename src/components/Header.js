@@ -24,10 +24,11 @@ const Header = () => (
     <div style={{display:"flex", marginLeft: "20px"}}>
     <NavLink to="/" className="App-header" exact={true}>Home</NavLink>
     <NavLink to="fmoh" className="App-header" >FMOH</NavLink>
-    <NavLink to="rmentry" className="App-header" > Enter Roadmap Items</NavLink>
-    <NavLink to="rmroadmap" className="App-header" >FM Roadmap</NavLink>
+    <NavLink to="rmmaintest" className="App-header" >FM Roadmap</NavLink>
     <NavLink to="custentry" className="App-header" >Enter CPM Data</NavLink>
-    <NavLink to="fmitementry" className="App-header" > FM OH Entry</NavLink>
+    <NavLink to="fmohitementry" className="App-header" >FM OH Entry</NavLink>
+    <NavLink to="fmoh2" className="App-header" >FMOHLive</NavLink>
+    <NavLink to="rmentrylive" className="App-header" >Roadmap Entry Live</NavLink>
     </div>
     
     </header>

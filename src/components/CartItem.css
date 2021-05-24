@@ -92,6 +92,7 @@ h2 {
     margin-left: 10px;
     width: 225px;
     font-size: 15px;
+    word-break: break-word;
 }
 
 .resonance {
@@ -121,4 +122,8 @@ h2 {
     margin-left: 10px;
     font-size: 15px;
     width: 150px;
+}
+
+.overHeadReason {
+    word-break: break-word;
 }
