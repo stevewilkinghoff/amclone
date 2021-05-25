@@ -8,13 +8,14 @@ import RoadmapData from '../DataRoadmap';
 import foundMoneyOH from '../DataFoundMoneyOH';
 import RoadmapStart2 from './RoadmapStart2';
 import { listFmRoadmapDatas } from '../graphql/queries';
+import { listFmohItems } from '../graphql/queries';
 import RoadmapList from './RoadmapList';
 
 
 function RoadmapStartMainTest() {
 
   const [roadmapData, setRoadmapData] = useState(RoadmapData);
-  const [fmOverhead, setFmOverhead] = useState(foundMoneyOH);
+  const [fmOverhead, setFmOverhead] = useState([]);
   const [roadmapDataItems, setRoadmapDataItems] = useState([]);
 
   useEffect(() => {
@@ -26,8 +27,18 @@ function RoadmapStartMainTest() {
     //console.log(listFmRoadmapDatas);   
     //console.log(roadmapDataItems) 
     })
-},["roadmapDataItems"])
-console.log(roadmapDataItems);
+  },[]);
+
+  useEffect(() => {
+    API.graphql(graphqlOperation(listFmohItems, {limit: 2000}))
+    .then(result => {
+    const thisIsIt = []
+    result.data.listFMOHItems.items.forEach(item => thisIsIt.push(item))
+    setFmOverhead(thisIsIt);
+    //console.log(listFmRoadmapDatas);   
+    console.log(thisIsIt) 
+    })
+  },[])
   
     return (
     
