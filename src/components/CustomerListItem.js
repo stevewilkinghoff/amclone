@@ -2,11 +2,11 @@ import React from 'react'
 import './CartItem.css';
 import NumberFormat from 'react-number-format';
 
-function Customer({ customer }) {
+function CPMItem({ customer }) {
     return (
         <div className="CartItem">
             <div className="CustomerList-item">
-                <div className="customer">
+                <div className="revenue">
                     <div>
                     <h5><span style={{color:"black"}}>Customer:</span></h5>
                     </div>
@@ -14,15 +14,7 @@ function Customer({ customer }) {
                     {customer.name}
                     </div>
                 </div>
-                <div className="revenue">
-                    <div>
-                    <h5>Revenue: </h5>
-                    </div>
-                    <div>
-                    <NumberFormat value={ customer.revenue }  displayType={"text"} prefix={"$"} thousandSeparator={","} decimalScale={0} />
-                    </div>
-                </div>
-                <div className="revenue">
+                <div className="revenue" style={{marginLeft: "55px"}}>
                     <div>
                     <h5>Profit: </h5>
                     </div>
@@ -30,12 +22,12 @@ function Customer({ customer }) {
                     <NumberFormat value={ customer.profit }  displayType={"text"} prefix={"$"} thousandSeparator={","} decimalScale={0} />
                     </div>
                 </div>
-                <div className="resonance">
+                <div className="revenue">
                     <div>
-                    <h5>Resonance Score: </h5>
+                    <h5>Resonance: </h5>
                     </div>
-                    <div className="resonance-number">
-                    {customer.resonance}
+                    <div className="overHeadReason">
+                    {customer.resonance}  
                     </div>
                 </div>
             </div>
@@ -44,4 +36,4 @@ function Customer({ customer }) {
     )
 }
 
-export default Customer
+export default CPMItem;

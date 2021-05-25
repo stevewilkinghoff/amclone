@@ -145,3 +145,54 @@ export const deleteFmRoadmapData = /* GraphQL */ `
     }
   }
 `;
+export const createCustomerCpmData = /* GraphQL */ `
+  mutation CreateCustomerCpmData(
+    $input: CreateCustomerCpmDataInput!
+    $condition: ModelcustomerCpmDataConditionInput
+  ) {
+    createCustomerCpmData(input: $input, condition: $condition) {
+      id
+      periodEnd
+      name
+      revenue
+      profit
+      resonance
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateCustomerCpmData = /* GraphQL */ `
+  mutation UpdateCustomerCpmData(
+    $input: UpdateCustomerCpmDataInput!
+    $condition: ModelcustomerCpmDataConditionInput
+  ) {
+    updateCustomerCpmData(input: $input, condition: $condition) {
+      id
+      periodEnd
+      name
+      revenue
+      profit
+      resonance
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteCustomerCpmData = /* GraphQL */ `
+  mutation DeleteCustomerCpmData(
+    $input: DeleteCustomerCpmDataInput!
+    $condition: ModelcustomerCpmDataConditionInput
+  ) {
+    deleteCustomerCpmData(input: $input, condition: $condition) {
+      id
+      periodEnd
+      name
+      revenue
+      profit
+      resonance
+      createdAt
+      updatedAt
+    }
+  }
+`;

@@ -21,3 +21,12 @@ type fmRoadmapData @model {
   noCustomers: String!
   noTransactions: String!
 }
+
+type customerCpmData @model {
+  id: ID!
+  periodEnd: String
+  name: String
+  revenue: String
+  profit: String
+  resonance: String
+}

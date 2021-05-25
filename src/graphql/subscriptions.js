@@ -118,3 +118,45 @@ export const onDeleteFmRoadmapData = /* GraphQL */ `
     }
   }
 `;
+export const onCreateCustomerCpmData = /* GraphQL */ `
+  subscription OnCreateCustomerCpmData {
+    onCreateCustomerCpmData {
+      id
+      periodEnd
+      name
+      revenue
+      profit
+      resonance
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateCustomerCpmData = /* GraphQL */ `
+  subscription OnUpdateCustomerCpmData {
+    onUpdateCustomerCpmData {
+      id
+      periodEnd
+      name
+      revenue
+      profit
+      resonance
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteCustomerCpmData = /* GraphQL */ `
+  subscription OnDeleteCustomerCpmData {
+    onDeleteCustomerCpmData {
+      id
+      periodEnd
+      name
+      revenue
+      profit
+      resonance
+      createdAt
+      updatedAt
+    }
+  }
+`;

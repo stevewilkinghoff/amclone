@@ -100,3 +100,42 @@ export const listFmRoadmapDatas = /* GraphQL */ `
     }
   }
 `;
+export const getCustomerCpmData = /* GraphQL */ `
+  query GetCustomerCpmData($id: ID!) {
+    getCustomerCpmData(id: $id) {
+      id
+      periodEnd
+      name
+      revenue
+      profit
+      resonance
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listCustomerCpmDatas = /* GraphQL */ `
+  query ListCustomerCpmDatas(
+    $filter: ModelcustomerCpmDataFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listCustomerCpmDatas(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        periodEnd
+        name
+        revenue
+        profit
+        resonance
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
