@@ -2,7 +2,7 @@ import React from 'react'
 import './CartTotal.css';
 import NumberFormat from 'react-number-format';
 
-function CPMProfitAtRisk( { customers }) {
+function CPMProfitAtRisk ( { customers }) {
 
     const totalProfitAtRisk = () => {
         let total = 0;
