@@ -3,11 +3,11 @@ import './CartTotal.css';
 import '../App.css';
 import NumberFormat from 'react-number-format';
 
-function CPMProfitAtRisk ( { customers }) {
+function CPMProfitAtRisk ( { hiddenLiabilityCustomers }) {
 
     const totalProfitAtRisk = () => {
         let total = 0;
-        customers.forEach((item)=> {
+        hiddenLiabilityCustomers.forEach((item)=> {
             total += parseInt(item.profit)
         })
             return total;
@@ -20,6 +20,7 @@ function CPMProfitAtRisk ( { customers }) {
             </div>
             <div>
                 <NumberFormat value={ totalProfitAtRisk() }  displayType={"text"} prefix={"$"} thousandSeparator={","} decimalScale={0} />
+                <p><NumberFormat value={hiddenLiabilityCustomers.length} displayType={"text"} decimalScale={0} /> customers</p>
             </div>
         </div>
     )
