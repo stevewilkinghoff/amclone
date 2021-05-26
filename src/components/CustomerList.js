@@ -13,6 +13,7 @@ import CPMHiddenLiabs from './CPMHiddenLiabs';
 import CPMTargetMores from './CPMTargetMores';
 import CPMAvoids from './CPMAvoids';
 import CPMCrossSells from './CPMCrossSells';
+import CPMCrossSellPotential from './CrossSellPotential';
 
 var median = require('median')
 
@@ -72,6 +73,33 @@ function CustomerList() {
     return initialList;
 }
 
+const crossSellCustomerProfitArray = () => {
+  let initialList = []
+  crossSellCustomers.forEach((item) => {
+    initialList.push(parseInt(item.profit))
+  })
+    return initialList;
+}
+
+const targetMoreCustomerProfitArray = () => {
+  let initialList = []
+  if (targetMoreCustomers.length > 0) 
+    {
+    targetMoreCustomers.forEach((item) => {
+      initialList.push(parseInt(item.profit))
+    })
+    return initialList;
+    }
+    else {
+      initialList.push(parseInt(0));
+      return initialList;
+    }
+}
+
+const crossSellPotentialMedianProfitSpread = () => {
+  return (median(crossSellCustomerProfitArray()) - median(targetMoreCustomerProfitArray()));
+}
+
 let tempMedianProfit = median(customerProfitList());
 let liabs = hiddenLiabCustomers;
 console.log(tempMedianProfit);
@@ -82,6 +110,8 @@ console.log(liabs.length)
 console.log(avoidCustomers);
 console.log(crossSellCustomers);
 console.log(targetMoreCustomers);
+console.log("median of crossSell profit", median(crossSellCustomerProfitArray()));
+console.log("median of targetMore profit", median(targetMoreCustomerProfitArray()));
 
 
 
@@ -93,7 +123,7 @@ console.log(targetMoreCustomers);
         <CustomerCPMList className="CustomerList" customers={ customers } />
         </div>
       
-       
+      <div style={{display:"flex", flexDirection:"column"}}>
       <div style={{marginLeft:"8px"}}>
         <h3 style={{marginTop:"60px"}}></h3>
           <div className="CPM-quadrants">
@@ -101,6 +131,15 @@ console.log(targetMoreCustomers);
             <CPMProfitAtRisk className="CustomerList" customers={ profitAtRiskCustomers} />
             </div>
           </div>
+        </div>
+        <div style={{marginLeft:"8px"}}>
+        <h3 style={{marginTop:"60px"}}></h3>
+          <div className="CPM-quadrants">
+            <div>
+            <CPMCrossSellPotential className="CustomerList" medianSpread={ crossSellPotentialMedianProfitSpread()} number = {3} noCrossSells = {crossSellCustomers.length}/>
+            </div>
+          </div>
+        </div>
         </div>
         
         <div style={{marginLeft:"8px"}}>
