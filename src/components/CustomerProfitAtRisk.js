@@ -1,5 +1,6 @@
 import React from 'react'
 import './CartTotal.css';
+import '../App.css';
 import NumberFormat from 'react-number-format';
 
 function CPMProfitAtRisk ( { customers }) {
@@ -13,12 +14,13 @@ function CPMProfitAtRisk ( { customers }) {
       }
     
     return (
-        <div className="CartTotal">
-            <h3>Profit At Risk
-            <span className="CartTotal-Price">
+        <div className="CPM-quadrants-pieces">
+            <div>
+            <h3>Profit At Risk</h3>
+            </div>
+            <div>
                 <NumberFormat value={ totalProfitAtRisk() }  displayType={"text"} prefix={"$"} thousandSeparator={","} decimalScale={0} />
-            </span>
-            </h3>
+            </div>
         </div>
     )
 }

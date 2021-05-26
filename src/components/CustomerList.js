@@ -9,6 +9,11 @@ import CPMProfitAtRisk from './CustomerProfitAtRisk';
 import CPMMedianProfit from './CustomerMedianProfit';
 import { listCustomerCpmDatas } from '../graphql/queries';
 
+import CPMHiddenLiabs from './CPMHiddenLiabs';
+import CPMTargetMores from './CPMTargetMores';
+import CPMAvoids from './CPMAvoids';
+import CPMCrossSells from './CPMCrossSells';
+
 var median = require('median')
 
 
@@ -87,27 +92,36 @@ console.log(targetMoreCustomers);
       <div>
         <CustomerCPMList className="CustomerList" customers={ customers } />
         </div>
-      <div>
-        <CPMProfitAtRisk className="CustomerList" customers={ profitAtRiskCustomers} />
-      </div>
-      <div style={{display:"flex-down", border: "solid", padding: "8px", marginLeft:"20px"}}>
-      <h3>Total Quadrant Weighting</h3>
-      <h4>Total Customers = {customers.length}</h4>
-       <div> 
-        <h5>Hidden Liability Quadrant - {(liabs.length/customers.length)*100}%</h5>
-      </div>
-      <div> 
-        <h5>Avoid Quadrant - {(avoidCustomers.length/customers.length)*100}%</h5>
-      </div>
-      <div> 
-        <h5>Cross-Sell Quadrant - {(crossSellCustomers.length/customers.length)*100}%</h5>
-      </div>
-      <div> 
-        <h5>Target More Quadrant - {(targetMoreCustomers.length/customers.length)*100}%</h5>
-      </div>
-      </div>
       
+       
+      <div style={{marginLeft:"8px"}}>
+        <h3 style={{marginTop:"60px"}}></h3>
+          <div className="CPM-quadrants">
+            <div>
+            <CPMProfitAtRisk className="CustomerList" customers={ profitAtRiskCustomers} />
+            </div>
+          </div>
+        </div>
         
+        <div style={{marginLeft:"8px"}}>
+        <h3>Total Quadrant Weighting</h3>
+          <div className="CPM-quadrants">
+            <div> 
+            <CPMHiddenLiabs liabs={liabs} customers={customers} />
+            </div>
+            <div> 
+            <CPMTargetMores targetMores={targetMoreCustomers} customers={customers} />
+            </div>
+          </div>
+          <div className="CPM-quadrants">
+            <div> 
+            <CPMAvoids avoids={avoidCustomers} customers={customers} />
+            </div>
+            <div> 
+            <CPMCrossSells crossSells={crossSellCustomers} customers={customers} />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -19,3 +19,18 @@ body {
 .CustomerList {
   display: flex;
 }
+
+.CPM-quadrants {
+  display:flex;
+  background-color:white;
+  border: black;
+}
+
+.CPM-quadrants-pieces {
+  display:flex;
+  flex-direction: column;
+  background-color:white;
+  border: solid;
+  width: 180px;
+  height: 125px;
+}
