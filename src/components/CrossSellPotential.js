@@ -3,9 +3,9 @@ import './CartTotal.css';
 import '../App.css';
 import NumberFormat from 'react-number-format';
 
-function CPMCrossSellPotential ( { medianSpread, noCrossSells }) {
+function CPMCrossSellPotential ( { medianSpread, noCrossSells, noCustomers, totalCustomers }) {
 
-    const [ noCrossSellsMoved, setNoCrossSellsMoved] = useState(0);    
+    const [ percentCrossSellsMoved, setPercentCrossSellsMoved] = useState(0);    
    
     return (
         <div className="CPM-quadrants-pieces">
@@ -13,10 +13,11 @@ function CPMCrossSellPotential ( { medianSpread, noCrossSells }) {
             <h3>Cross Sell Potential</h3>
             </div>
             <div>
-            <input type="text" placeholder= {noCrossSells} onBlur={e => setNoCrossSellsMoved(e.target.value)}/> 
+            <label>Enter % Moved</label>
+            <input type="text" placeholder= {noCrossSells} onBlur={e => setPercentCrossSellsMoved(e.target.value)}/> 
             </div>
             <div>
-                <NumberFormat value={ medianSpread * noCrossSellsMoved }  displayType={"text"} prefix={"$"} thousandSeparator={","} decimalScale={0} />
+                <NumberFormat value={ (medianSpread * (percentCrossSellsMoved/100)*totalCustomers*(noCrossSells/noCustomers)) }  displayType={"text"} prefix={"$"} thousandSeparator={","} decimalScale={0} />
             </div>
         </div>
     )

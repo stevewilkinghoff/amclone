@@ -3,7 +3,7 @@ import './CartTotal.css';
 import '../App.css';
 import NumberFormat from 'react-number-format';
 
-function CPMProfitReplacementPotential ( { medianSpread, noAvoids }) {
+function CPMProfitReplacementPotential ( { medianSpread, noAvoids, noCustomers, totalCustomers }) {
 
     const [ noAvoidsMoved, setNoAvoidsMoved] = useState(0);    
    
@@ -13,10 +13,11 @@ function CPMProfitReplacementPotential ( { medianSpread, noAvoids }) {
             <h3>Profit Replacement Potential</h3>
             </div>
             <div>
+            <label>Enter % Moved</label>
             <input type="text" placeholder= {noAvoids} onBlur={e => setNoAvoidsMoved(e.target.value)}/> 
             </div>
             <div>
-                <NumberFormat value={ medianSpread * noAvoidsMoved }  displayType={"text"} prefix={"$"} thousandSeparator={","} decimalScale={0} />
+                <NumberFormat value={ (medianSpread * (noAvoidsMoved/100)*totalCustomers*(noAvoids/noCustomers)) }  displayType={"text"} prefix={"$"} thousandSeparator={","} decimalScale={0} />
             </div>
         </div>
     )

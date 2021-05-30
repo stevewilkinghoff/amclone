@@ -3,15 +3,15 @@ import React from 'react'
 import '../App.css';
 import NumberFormat from 'react-number-format';
 
-function CPMTargetMores({targetMores, customers}) {
+function CPMTargetMores({targetMores, customers, medProfit}) {
     return (
-        <div className="CPM-quadrants-pieces">
+        <div className="CPM-quadrants-pieces" style={{borderRight:"solid"}}>
             <div>
-            <h5>Target More</h5>
+            <h4 style={{textDecorationLine:"underline"}}>Target More</h4>
             </div>
             <div>
             <h5> <NumberFormat value={(targetMores.length/customers.length)*100} displayType={"text"} decimalScale={2} />%</h5>
-            <p><NumberFormat value={targetMores.length} displayType={"text"} decimalScale={0} /> customers</p>
+            <h5>Med. Profit <NumberFormat value={medProfit} displayType={"text"} decimalScale={0} prefix={"$"} /></h5>
             </div>
         </div>
     )

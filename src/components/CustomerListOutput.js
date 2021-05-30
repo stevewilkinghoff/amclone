@@ -9,9 +9,9 @@ function CustomerCPMList({ customers }) {
   
     return (
         <div className="CartItems">
-          <h1>Your CPM Analysis Customers</h1>
+          <h1>CPM Analysis Customers Entered</h1>
           <hr />
-          <div className="CartItems-items">
+          <div className="CartItems-items" >
             {customers.map((customer, index) =>
             <Customer 
             customer={customer}
