@@ -5,7 +5,13 @@ import NumberFormat from 'react-number-format';
 
 function CPMCrossSellPotential ( { medianSpread, noCrossSells, noCustomers, totalCustomers }) {
 
-    const [ percentCrossSellsMoved, setPercentCrossSellsMoved] = useState(0);    
+    
+    const [ percentCrossSellsMoved, setPercentCrossSellsMoved] = useState(0);   
+    const [ profitGain, setProfitGain] = useState(0);
+    
+    const crossSellProfitGain = () => {
+        return (medianSpread * (percentCrossSellsMoved/100)*totalCustomers*(noCrossSells/noCustomers));
+      }
    
     return (
         <div className="CPM-quadrants-pieces">
@@ -14,10 +20,10 @@ function CPMCrossSellPotential ( { medianSpread, noCrossSells, noCustomers, tota
             </div>
             <div>
             <label>Enter % Moved</label>
-            <input type="text" placeholder= {noCrossSells} onBlur={e => setPercentCrossSellsMoved(e.target.value)}/> 
+            <input type="text" placeholder= {0} onBlur={e => setPercentCrossSellsMoved(e.target.value)} /> 
             </div>
             <div>
-                <NumberFormat value={ (medianSpread * (percentCrossSellsMoved/100)*totalCustomers*(noCrossSells/noCustomers)) }  displayType={"text"} prefix={"$"} thousandSeparator={","} decimalScale={0} />
+                <NumberFormat value={ crossSellProfitGain() }  displayType={"text"} prefix={"$"} thousandSeparator={","} decimalScale={0} />
             </div>
         </div>
     )

@@ -11,7 +11,7 @@ function CPMAvoids({avoids, customers, medProfit}) {
             </div>
             <div>
             <h5> <NumberFormat value={(avoids.length/customers.length)*100} displayType={"text"} decimalScale={2} />%</h5>
-            <h5>Med. Profit <NumberFormat value={medProfit} displayType={"text"} decimalScale={0} prefix={"$"} /></h5>
+            <h5>Avg Profit <NumberFormat value={medProfit} displayType={"text"} decimalScale={0} prefix={"$"} /></h5>
             </div>
         </div>
     )

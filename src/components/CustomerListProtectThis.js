@@ -20,7 +20,7 @@ import CPMProfitReplacementPotential from './ProfitReplacementPotential';
 var median = require('median')
 
 
-function CustomerList() {
+function CustomerList1() {
 
   const [customers, setCustomers] = useState([]);
   const [profitAtRiskCustomers, setProfitAtRiskCustomers] = useState([]);
@@ -186,12 +186,11 @@ let liabs = hiddenLiabCustomers;
             </div>
           </div>
       </div>
-      
       <div style={{marginLeft:"8px"}}>
         <h3 style={{marginTop:"60px"}}></h3>
           <div className="CPM-quadrants" style={{borderRight:"solid 2px", borderBottom:"solid"}}>
             <div>
-            <CPMCrossSellPotential className="CustomerList" medianSpread={ crossSellPotentialMedianProfitSpread()} noCrossSells = {crossSellCustomers.length} totalCustomers={roadmapDataItems.noCustomers} noCustomers={customers.length}  />
+            <CPMCrossSellPotential className="CustomerList" medianSpread={ crossSellPotentialMedianProfitSpread()} noCrossSells = {crossSellCustomers.length} totalCustomers={roadmapDataItems.noCustomers} noCustomers={customers.length}/>
             </div>
           </div>
       </div>
@@ -199,7 +198,7 @@ let liabs = hiddenLiabCustomers;
         <h3 style={{marginTop:"60px"}}></h3>
           <div className="CPM-quadrants" style={{borderRight:"solid 2px", borderBottom:"solid"}}>
             <div>
-            <CPMProfitReplacementPotential className="CustomerList" medianSpread={ crossSellPotentialMedianProfitSpread()} noAvoids={avoidCustomers.length} totalCustomers={roadmapDataItems.noCustomers} noCustomers={customers.length}  />
+            <CPMProfitReplacementPotential className="CustomerList" medianSpread={ profitReplacementPotentialMedianProfitSpread()} noAvoids = {avoidCustomers.length} totalCustomers={roadmapDataItems.noCustomers} noCustomers={customers.length}/>
             </div>
           </div>
       </div>
@@ -229,4 +228,4 @@ let liabs = hiddenLiabCustomers;
   );
 }
 
-export default CustomerList;
+export default CustomerList1;

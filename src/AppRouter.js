@@ -11,13 +11,14 @@ import FMOHItemEntry from '../src/components/FMOHItemEntry';
 import RoadmapEntryLive from '../src/components/RoadmapEntryLive';
 import CPMEntryLive from '../src/components/CustomerEntryLive';
 import CustomerList from '../src/components/CustomerList';
+import CustomerList1 from '../src/components/CustomerListProtectThis';
 
 const AppRouter = () => (
     <BrowserRouter>
       <div>
         <Header />
         <Switch>
-        <Route path="/" component={FMOH} exact={true} />
+        <Route path="/" component={RoadmapStartMainTest} exact={true} />
         <Route path="/fmoh" component={FMOH} />
         <Route path="/fmoh2" component={FMOH2} />
         <Route path="/rmroadmap" component={RoadmapStartMain} />

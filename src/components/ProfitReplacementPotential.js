@@ -5,7 +5,12 @@ import NumberFormat from 'react-number-format';
 
 function CPMProfitReplacementPotential ( { medianSpread, noAvoids, noCustomers, totalCustomers }) {
 
-    const [ noAvoidsMoved, setNoAvoidsMoved] = useState(0);    
+    const [ noAvoidsMoved, setNoAvoidsMoved] = useState(0);  
+    
+    const targetMoreProfitGain = () => {
+        return (medianSpread * (noAvoidsMoved/100)*totalCustomers*(noAvoids/noCustomers));
+      }
+      
    
     return (
         <div className="CPM-quadrants-pieces">
@@ -14,10 +19,10 @@ function CPMProfitReplacementPotential ( { medianSpread, noAvoids, noCustomers, 
             </div>
             <div>
             <label>Enter % Moved</label>
-            <input type="text" placeholder= {noAvoids} onBlur={e => setNoAvoidsMoved(e.target.value)}/> 
+            <input type="text" placeholder= {0} onBlur={e => setNoAvoidsMoved(e.target.value)}/> 
             </div>
             <div>
-                <NumberFormat value={ (medianSpread * (noAvoidsMoved/100)*totalCustomers*(noAvoids/noCustomers)) }  displayType={"text"} prefix={"$"} thousandSeparator={","} decimalScale={0} />
+                <NumberFormat value={ targetMoreProfitGain() }  displayType={"text"} prefix={"$"} thousandSeparator={","} decimalScale={0} />
             </div>
         </div>
     )
