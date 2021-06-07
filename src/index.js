@@ -11,6 +11,7 @@ import RoadmapStartMain from '../src/components/RoadmapStartMain';
 import RoadmapStart from '../src/components/RoadmapStart';
 import AppRouter from './AppRouter';
 import reportWebVitals from './reportWebVitals';
+import TestPassing from '../src/components/Playground';
 
 import Amplify from "aws-amplify";
 import awsExports from "./aws-exports";
@@ -22,6 +23,13 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+//ReactDOM.render(
+//  <React.StrictMode>
+//    <TestPassing />
+//  </React.StrictMode>,
+//  document.getElementById('root')
+//);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

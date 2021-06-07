@@ -3,13 +3,14 @@ import './CartTotal.css';
 import '../App.css';
 import NumberFormat from 'react-number-format';
 
-function CPMCrossSellPotential ( { medianSpread, noCrossSells, noCustomers, totalCustomers }) {
+function CPMCrossSellPotential ( { medianSpread, noCrossSells, noCustomers, totalCustomers, crossSellProfitGainWoo, setCrossSellProfitGain }) {
 
     
     const [ percentCrossSellsMoved, setPercentCrossSellsMoved] = useState(0);   
     const [ profitGain, setProfitGain] = useState(0);
     
     const crossSellProfitGain = () => {
+        setCrossSellProfitGain(medianSpread * (percentCrossSellsMoved/100)*totalCustomers*(noCrossSells/noCustomers))
         return (medianSpread * (percentCrossSellsMoved/100)*totalCustomers*(noCrossSells/noCustomers));
       }
    

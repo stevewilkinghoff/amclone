@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
 import '../App.css';
+import NumberFormat from 'react-number-format';
 
 import FMList from './FMOverheadList';
 import FMOverheadTotal from './FMOverheadTotal';
@@ -30,6 +31,8 @@ function CustomerList() {
   const [targetMoreCustomers, setTargetMoreCustomers] = useState([]);
   const [totalCustomersForAnalysis, setTotalCustomersForAnalysis] = useState();
   const [roadmapDataItems, setRoadmapDataItems] = useState([]);
+  const [crossSellProfitGain, setCrossSellProiftGain] = useState(0);
+  const [profitReplacementGain, setProfitReplacementGain] = useState(0);
 
   //add something here to pass state to CrossSell potential to gross up calcs from customer input to total customer count
   
@@ -161,7 +164,7 @@ const onEnterNoCustomers = (e) => {
 let tempMedianProfit = median(customerProfitList());
 let liabs = hiddenLiabCustomers;
 //console.log(totalCustomersForAnalysis);
-
+console.log(crossSellProfitGain);
 
 
   return (
@@ -191,7 +194,7 @@ let liabs = hiddenLiabCustomers;
         <h3 style={{marginTop:"60px"}}></h3>
           <div className="CPM-quadrants" style={{borderRight:"solid 2px", borderBottom:"solid"}}>
             <div>
-            <CPMCrossSellPotential className="CustomerList" medianSpread={ crossSellPotentialMedianProfitSpread()} noCrossSells = {crossSellCustomers.length} totalCustomers={roadmapDataItems.noCustomers} noCustomers={customers.length}  />
+            <CPMCrossSellPotential className="CustomerList" medianSpread={ crossSellPotentialMedianProfitSpread()} noCrossSells = {crossSellCustomers.length} totalCustomers={roadmapDataItems.noCustomers} noCustomers={customers.length} crossSellProfitGainWoo={crossSellProfitGain} setCrossSellProfitGain={setCrossSellProiftGain}  />
             </div>
           </div>
       </div>
@@ -199,8 +202,20 @@ let liabs = hiddenLiabCustomers;
         <h3 style={{marginTop:"60px"}}></h3>
           <div className="CPM-quadrants" style={{borderRight:"solid 2px", borderBottom:"solid"}}>
             <div>
-            <CPMProfitReplacementPotential className="CustomerList" medianSpread={ crossSellPotentialMedianProfitSpread()} noAvoids={avoidCustomers.length} totalCustomers={roadmapDataItems.noCustomers} noCustomers={customers.length}  />
+            <CPMProfitReplacementPotential className="CustomerList" medianSpread={ crossSellPotentialMedianProfitSpread()} noAvoids={avoidCustomers.length} totalCustomers={roadmapDataItems.noCustomers} noCustomers={customers.length} profitReplacementGainWoo={profitReplacementGain} setProfitReplacementGain={setProfitReplacementGain} />
             </div>
+          </div>
+      </div>
+      <div style={{marginLeft:"8px"}}>
+        <h3 style={{marginTop:"60px"}}></h3>
+          <div className="CPM-quadrants" style={{borderRight:"solid 2px", borderBottom:"solid"}}>
+            <div>
+              <div>
+                <h3>Total CPM Gain</h3>
+              </div>
+              <NumberFormat value={crossSellProfitGain + profitReplacementGain}  displayType={"text"} prefix={"$"} thousandSeparator={","} decimalScale={0} />
+                
+              </div>
           </div>
       </div>
         </div>

@@ -3,11 +3,12 @@ import './CartTotal.css';
 import '../App.css';
 import NumberFormat from 'react-number-format';
 
-function CPMProfitReplacementPotential ( { medianSpread, noAvoids, noCustomers, totalCustomers }) {
+function CPMProfitReplacementPotential ( { medianSpread, noAvoids, noCustomers, totalCustomers, profitReplacementGainWoo, setProfitReplacementGain }) {
 
     const [ noAvoidsMoved, setNoAvoidsMoved] = useState(0);  
     
     const targetMoreProfitGain = () => {
+        setProfitReplacementGain(medianSpread * (noAvoidsMoved/100)*totalCustomers*(noAvoids/noCustomers));
         return (medianSpread * (noAvoidsMoved/100)*totalCustomers*(noAvoids/noCustomers));
       }
       
