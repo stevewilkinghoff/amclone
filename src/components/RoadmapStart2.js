@@ -7,7 +7,7 @@ import NumberFormat from 'react-number-format';
 
 function RoadmapStart2({ roadmapData, fmOverhead }) {
 
-    const [roadmapDataItems, setRoadmapDataItems] = useState([]);
+    const [roadmapDataItems, setRoadmapDataItems] = useState([roadmapData]);
     const [revisedRoadmapData, setRevisedRoadmapData] = useState(roadmapData)
     const [tempRoadmapData, setTempRoadmapData] = useState({...revisedRoadmapData})
     const [revenue, setRevenue] = useState(roadmapData.revenue);
@@ -15,17 +15,16 @@ function RoadmapStart2({ roadmapData, fmOverhead }) {
     const [cogs, setCOGS] = useState(roadmapData.cogs);
     const [grossProfit, setGrossProfit] = useState(roadmapData.grossProfit);
     const [noCustomers, setNoCustomers] = useState(roadmapData.noCustomers);
-    const [noCustomersSeek, setNoCustomersSeek] = useState(roadmapData.noCustomers);
+    const [noCustomersSeek, setNoCustomersSeek] = useState(parseInt(roadmapData.noCustomers));
     const [noTrxSeek, setNoTrxSeek] = useState(roadmapData.noTransactions);
     const [purchFreqSeek, setPurchFreqSeek] = useState((roadmapData.noTransactions) / (roadmapData.noCustomers))
     const [trxSizeSeek, setTrxSizeSeek] = useState((roadmapData.revenue) / (roadmapData.noTransactions))
     const [gmSeek, setGmSeek] = useState(parseInt(roadmapData.grossProfit)/parseInt(roadmapData.revenue));
     const [startingGm, setStartingGm] = useState(parseInt(roadmapData.grossProfit)/parseInt(roadmapData.revenue));
 
-    console.log(parseInt(roadmapData.grossProfit));
-    console.log(parseInt(roadmapData.grossProfit)/parseInt(roadmapData.revenue));
+    console.log(roadmapData);
     console.log(gmSeek);
-    console.log(startingGm);
+    
 
     const getFMOH = () => {
         let total = 0;
@@ -34,6 +33,8 @@ function RoadmapStart2({ roadmapData, fmOverhead }) {
         })
             return total;
     }
+
+    console.log(roadmapData.grossProfit - roadmapData.overhead - getFMOH())
 
     const getGM = () => {
         return (revenue - cogs);
@@ -188,10 +189,10 @@ function RoadmapStart2({ roadmapData, fmOverhead }) {
                 </div>
                 <div className="roadmap-item">
                     <div>
-                    <h5>FMBE Compare</h5>
+                    <h5>New Found Money Gap</h5>
                     </div>
                     <div>
-                    <NumberFormat value={ newGetFMBECompare((noCustomersSeek * purchFreqSeek * trxSizeSeek * (gmSeek/100)), getFMOH(0))  }  displayType={"text"}  prefix={"$"}thousandSeparator={","} decimalScale={0}   />
+                    <NumberFormat value={ (newGetFMBECompare((noCustomersSeek * purchFreqSeek * trxSizeSeek * (gmSeek/100)), getFMOH(0))-roadmapData.overhead) }  displayType={"text"}  prefix={"$"}thousandSeparator={","} decimalScale={0}  defaultValue={roadmapData.grossProfit - roadmapData.overhead - getFMOH()} />
                     </div>
                 </div>
                 </div>
