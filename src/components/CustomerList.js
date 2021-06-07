@@ -17,6 +17,7 @@ import CPMAvoids from './CPMAvoids';
 import CPMCrossSells from './CPMCrossSells';
 import CPMCrossSellPotential from './CrossSellPotential';
 import CPMProfitReplacementPotential from './ProfitReplacementPotential';
+import CPMProfitGain from './CPMProfitGain';
 
 var median = require('median')
 
@@ -182,7 +183,7 @@ console.log(crossSellProfitGain);
       <div style={{display:"flex", flexDirection:"column"}}>     
       
       <div style={{marginLeft:"8px"}}>
-        <h3 style={{marginTop:"60px"}}></h3>
+        <h3 >Profit at Risk</h3>
           <div className="CPM-quadrants" style={{borderRight:"solid 2px", borderBottom:"solid"}}>
             <div>
             <CPMProfitAtRisk className="CustomerList" hiddenLiabilityCustomers={ hiddenLiabCustomers} totalCustomersForAnalysis={totalCustomersForAnalysis} />
@@ -190,34 +191,7 @@ console.log(crossSellProfitGain);
           </div>
       </div>
       
-      <div style={{marginLeft:"8px"}}>
-        <h3 style={{marginTop:"60px"}}></h3>
-          <div className="CPM-quadrants" style={{borderRight:"solid 2px", borderBottom:"solid"}}>
-            <div>
-            <CPMCrossSellPotential className="CustomerList" medianSpread={ crossSellPotentialMedianProfitSpread()} noCrossSells = {crossSellCustomers.length} totalCustomers={roadmapDataItems.noCustomers} noCustomers={customers.length} crossSellProfitGainWoo={crossSellProfitGain} setCrossSellProfitGain={setCrossSellProiftGain}  />
-            </div>
-          </div>
-      </div>
-      <div style={{marginLeft:"8px"}}>
-        <h3 style={{marginTop:"60px"}}></h3>
-          <div className="CPM-quadrants" style={{borderRight:"solid 2px", borderBottom:"solid"}}>
-            <div>
-            <CPMProfitReplacementPotential className="CustomerList" medianSpread={ crossSellPotentialMedianProfitSpread()} noAvoids={avoidCustomers.length} totalCustomers={roadmapDataItems.noCustomers} noCustomers={customers.length} profitReplacementGainWoo={profitReplacementGain} setProfitReplacementGain={setProfitReplacementGain} />
-            </div>
-          </div>
-      </div>
-      <div style={{marginLeft:"8px"}}>
-        <h3 style={{marginTop:"60px"}}></h3>
-          <div className="CPM-quadrants" style={{borderRight:"solid 2px", borderBottom:"solid"}}>
-            <div>
-              <div>
-                <h3>Total CPM Gain</h3>
-              </div>
-              <NumberFormat value={crossSellProfitGain + profitReplacementGain}  displayType={"text"} prefix={"$"} thousandSeparator={","} decimalScale={0} />
-                
-              </div>
-          </div>
-      </div>
+      
         </div>
         
         <div style={{marginLeft:"8px"}}>
@@ -236,6 +210,24 @@ console.log(crossSellProfitGain);
             </div>
             <div> 
             <CPMCrossSells crossSells={crossSellCustomers} customers={customers} medProfit={median(crossSellCustomerProfitArray())} />
+            </div>
+          </div>
+        </div>
+        <div style={{marginLeft:"8px"}}>
+        <h3>CPM Profit Gain</h3>
+          <div className="CPM-quadrants">
+            <div> 
+            <CPMCrossSellPotential className="CustomerList" medianSpread={ crossSellPotentialMedianProfitSpread()} noCrossSells = {crossSellCustomers.length} totalCustomers={roadmapDataItems.noCustomers} noCustomers={customers.length} crossSellProfitGainWoo={crossSellProfitGain} setCrossSellProfitGain={setCrossSellProiftGain}  />
+            </div>
+          </div>
+          <div className="CPM-quadrants">
+            <div> 
+            <CPMProfitReplacementPotential className="CustomerList" medianSpread={ crossSellPotentialMedianProfitSpread()} noAvoids={avoidCustomers.length} totalCustomers={roadmapDataItems.noCustomers} noCustomers={customers.length} profitReplacementGainWoo={profitReplacementGain} setProfitReplacementGain={setProfitReplacementGain} />
+            </div>
+          </div>
+          <div className="CPM-quadrants">
+            <div> 
+            <CPMProfitGain className="CustomerList" crossSellProfitGainWoo={crossSellProfitGain} profitReplacementGainWoo={profitReplacementGain} />
             </div>
           </div>
         </div>
