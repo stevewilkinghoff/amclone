@@ -93,7 +93,15 @@ function RoadmapStart2({ roadmapData, fmOverhead }) {
                 </div>
                 <div className="roadmap-item">
                     <div>
-                    <h5>Found Money Margin: </h5>
+                    <h5>Current OH: </h5>
+                    </div>
+                    <div>
+                    <NumberFormat value={ roadmapData.overhead }  displayType={"text"} prefix={"$"} thousandSeparator={","} decimalScale={0} />
+                    </div>
+                </div>
+                <div className="roadmap-item">
+                    <div>
+                    <h5>Current Gross Profit: </h5>
                     </div>
                     <div>
                     <NumberFormat value={ roadmapData.grossProfit}  displayType={"text"} prefix={"$"} thousandSeparator={","} decimalScale={0} />
@@ -104,7 +112,7 @@ function RoadmapStart2({ roadmapData, fmOverhead }) {
                     <h5>Found Money Gap: </h5>
                     </div>
                     <div>
-                    <NumberFormat value={ roadmapData.grossProfit - getFMOH()}  displayType={"text"} prefix={"$"} thousandSeparator={","} decimalScale={0} />
+                    <NumberFormat value={ roadmapData.grossProfit - getFMOH() - roadmapData.overhead}  displayType={"text"} prefix={"$"} thousandSeparator={","} decimalScale={0} />
                     </div>
                 </div>
                 <div className="roadmap-item">

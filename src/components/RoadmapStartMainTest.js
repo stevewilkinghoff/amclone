@@ -25,7 +25,7 @@ function RoadmapStartMainTest() {
     result.data.listFmRoadmapDatas.items.forEach(item => thisIsIt.push(item))
     setRoadmapDataItems(thisIsIt[thisIsIt.length - 1]);
     //console.log(listFmRoadmapDatas);   
-    //console.log(roadmapDataItems) 
+    console.log(roadmapDataItems) 
     })
   },[]);
 
